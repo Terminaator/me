@@ -1,0 +1,46 @@
+
+* { box-sizing: border-box; margin: 0 0 0 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+.wrap {
+    margin: 10px 10px 10px 25%; height: 90%; width: 50%;
+    display: flex; flex-direction: column;
+}
+.but_my {
+    background: #004BA0;
+}
+.container {
+    flex: 1 1 90%; display: flex; flex-direction: column;
+    background-color: #eee; border: 1px solid #ccc; overflow: auto;
+}
+.header{
+    font-family: "Courier New", Courier, "Courier 10 Pitch", monospace;
+    text-align: center;
+}
+.form { flex: 0 0 32px; display: flex; border: 1px solid #ddd; }
+.form > input[type=text] { flex: 1 1 auto; border: 1px solid #eee; }
+.form > input[type=button] { flex: 0 0 20%; border: 1px solid #eee; }
+.bubble { flex: 1 1 auto; clear: both; } /* clear the floats here on parent */
+.bubble p {
+    border-radius: 5px;
+    padding: 8px; margin: 8px 12px;
+    max-width: 80%;  /* this will make it not exceed 80% and then wrap */
+    position: relative; transition: background-color 0.5s;
+}
+.left p { background-color: #ccc; float: left; } /* floated left */
+.right p { background-color: #004BA0; color: #fff; float: right; } /* floated right */
+/* classes below are only for arrows, not relevant */
+.left p::before {
+    content: ''; position: absolute;
+    width: 0; height: 0; left: -8px; top: 8px;
+    border-top: 4px solid transparent;
+    border-right: 8px solid #ccc;
+    border-bottom: 4px solid transparent;
+}
+.right p::after {
+    content: ''; position: absolute;
+    width: 0; height: 0; right: -8px; bottom: 8px;
+    border-top: 4px solid transparent;
+    border-left: 8px solid #004BA0;
+    border-bottom: 4px solid transparent;
+}
+

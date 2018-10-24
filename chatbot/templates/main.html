@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html ng-app="chatbot">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link  rel="stylesheet" href="{% static '/index.css' %}">
+</head>
+<body ng-controller="MainController">
+<h2 class="header">ÕIS2 CHATBOT</h2>
+{%  verbatim %}
+<div class="wrap">
+    <div id="chatWindow" class="container">
+        <div ng-repeat="question in questions" >
+            <div ng-if="question[1] == 'True'">
+                <div class="bubble right">
+                    <p>{{ question[0]}}</p>
+                </div>
+            </div>
+            <div ng-if="question[1]=='False'">
+                <div class="bubble left">
+                    <p>{{ question[0].answer }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <form id="inputWindow" class="form">
+
+        <input id="ifield"  type="text" ng-model="question">
+        <button class="but_my btn btn-primary" id="btn" type="submit" ng-click="addItem(question)"> Küsi </button>
+    </form>
+</div>
+</div>
+{% endverbatim %}
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+<script src="{% static '/app.js' %}"></script>
